@@ -29,7 +29,7 @@ namespace PubComp.RedisRepo
 
         public RedisContext(
             string contextNamespace,
-            string host = "localhost", int port = 6379, string password = null, int db = 0)
+            string host = "10.30.24.163", int port = 6379, string password = "74XlUwXHSQksEmncuGGt", int db = 0)
             : this(
                 contextNamespace,
                 ToConnectionString(host, port, password, db),
@@ -131,7 +131,7 @@ namespace PubComp.RedisRepo
         {
             const string prefix = @"redis://";
             if (string.IsNullOrEmpty(connectionString))
-                connectionString = @"redis://localhost:6379";
+                connectionString = @"redis://10.30.24.163:6379";
 
             var queryIndex = connectionString.IndexOf('?');
 
@@ -160,7 +160,7 @@ namespace PubComp.RedisRepo
 
             var hostNames = hosts.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
             if (hostNames.Length == 0)
-                hostNames = new[] { "localhost" };
+                hostNames = new[] { "10.30.24.163" };
 
             var arguments = !string.IsNullOrEmpty(queryString)
                 ? ParseQuery(queryString)
